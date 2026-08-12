@@ -315,3 +315,111 @@ body, .md-typeset {
   margin-left: 0.3em;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   🌙 DARK MODE — Chambers at Night (High Contrast)
+   Replaces the previous [data-md-color-scheme="slate"] block
+   ═══════════════════════════════════════════════════════════ */
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1F3251;
+  --md-primary-fg-color--dark: #14213D;
+  --md-default-bg-color: #0E1524;
+  --md-default-fg-color: #F5F1E4;              /* ← brighter (was #E8E6DF) */
+  --md-default-fg-color--light: #D4CEBF;       /* ← brighter (was #B8BFC9) */
+  --md-default-fg-color--lighter: #9AA0A6;
+  --md-code-bg-color: #0A0F1A;
+  --md-code-fg-color: #F3D87A;                 /* ← brighter gold */
+  --md-accent-fg-color: #E6C04E;               /* ← brighter brass */
+}
+
+/* Explicit element overrides for dark mode */
+[data-md-color-scheme="slate"] body,
+[data-md-color-scheme="slate"] .md-typeset {
+  color: #F5F1E4;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #FFF8E7;                              /* ivory headings */
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #E6C04E;                              /* bright brass links */
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  color: #F3D87A;
+}
+
+/* Tables in dark mode */
+[data-md-color-scheme="slate"] .md-typeset table {
+  border-color: #2A3A5C;
+}
+[data-md-color-scheme="slate"] .md-typeset th {
+  background-color: #1F3251;
+  color: #FFF8E7;
+}
+[data-md-color-scheme="slate"] .md-typeset td {
+  color: #F5F1E4;
+  border-color: #2A3A5C;
+}
+[data-md-color-scheme="slate"] .md-typeset tr:nth-child(even) {
+  background-color: rgba(245, 241, 228, 0.04);
+}
+
+/* Code blocks in dark mode */
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: rgba(245, 241, 228, 0.1);
+  color: #FFF8E7;
+}
+[data-md-color-scheme="slate"] .md-typeset pre {
+  background-color: #0A0F1A;
+  color: #F3D87A;
+  border-left-color: #E6C04E;
+}
+
+/* Admonitions in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+  background-color: rgba(31, 50, 81, 0.4);
+  border-color: #2A3A5C;
+  color: #F5F1E4;
+}
+[data-md-color-scheme="slate"] .md-typeset .admonition-title,
+[data-md-color-scheme="slate"] .md-typeset details summary {
+  background-color: rgba(230, 192, 78, 0.15);
+  color: #FFF8E7;
+}
+
+/* Nav sidebar in dark mode */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #D4CEBF;
+}
+[data-md-color-scheme="slate"] .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #E6C04E;
+}
+
+/* Footer in dark mode */
+[data-md-color-scheme="slate"] .md-footer {
+  background-color: #0A0F1A;
+  color: #D4CEBF;
+}
+
+/* Scrollbar in dark mode */
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-track {
+  background: #0E1524;
+}
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb {
+  background: #2A3A5C;
+}
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
+  background: #E6C04E;
+}
+
+/* Mermaid diagrams in dark mode */
+[data-md-color-scheme="slate"] .md-typeset .mermaid svg {
+  background-color: rgba(31, 50, 81, 0.3);
+}
+

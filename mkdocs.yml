@@ -50,6 +50,7 @@ nav:
 
   - Documentation:
       - ETL Guide: guides/etl-guide.md
+      - Email Distribution: guides/email-distribution.md
       - Database Schema: appendix/database-schema.md
 
   - Policies & Terms:
