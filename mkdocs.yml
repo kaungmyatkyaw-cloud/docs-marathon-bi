@@ -1,10 +1,15 @@
 site_name: Marathon BI Documentation
-site_description: Unified Data Warehouse - Documentation Library
-site_url: https://kaungmyatkyaw-cloud.github.io/docs-marathon-bi/
+site_description: Unified Data Warehouse — BI team of Marathon Myanmar
+site_url: https://docs-marathon-bi.kaungmyatkyaw.workers.dev/
+
+repo_name: kaungmyatkyaw-cloud/docs-marathon-bi
+repo_url: https://github.com/kaungmyatkyaw-cloud/docs-marathon-bi
 
 theme:
   name: material
-  logo: assets/logo.svg
+  logo: assets/logo.webp
+  favicon: assets/logo.webp
+  language: en
   palette:
     - scheme: default
       toggle:
@@ -15,13 +20,15 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
   features:
-    - navigation.tabs
+    - navigation.tabs            # ← required for hover dropdowns
+    - navigation.tabs.sticky     # tabs stay visible while scrolling
     - navigation.sections
     - navigation.expand
     - navigation.top
     - search.suggest
     - search.highlight
     - content.code.copy
+    - content.tabs.link
 
 extra_css:
   - stylesheets/justice-theme.css
@@ -29,41 +36,53 @@ extra_css:
 extra_javascript:
   - javascripts/anim.js
 
-repo_name: kaungmyatkyaw-cloud/docs-marathon-bi
-repo_url: https://github.com/kaungmyatkyaw-cloud/docs-marathon-bi
-
 nav:
   - Home: index.md
-  - What We Do: what-we-do.md
-  - Who We Are: about.md
-  - Sustainability: sustainability.md      # ← NEW
+
+  - About Us:                     # ← hover shows dropdown ⌄
+      - What We Do: what-we-do.md
+      - Who We Are: about.md
+      - Sustainability: sustainability.md
+      - Contact: contact.md
+
   - Our Work:
-      # ...existing projects entries
+      - Projects & Status: projects/index.md
+      - Daily Routine: projects/daily-routine.md
+      - Epic 1 · Source Analysis: projects/epic-1-source-analysis.md
+      - Epic 2 · Infrastructure & ETL: projects/epic-2-infrastructure-etl.md
+      - Epic 3 · MDM & DW Build: projects/epic-3-mdm-dw.md
+      - Epic 4 · Performance & BI: projects/epic-4-performance-bi.md
+
   - Documentation:
       - ETL Guide: guides/etl-guide.md
       - Database Schema: appendix/database-schema.md
+
   - Policies & Terms:
       - Data Governance: policies/data-governance.md
       - ETL Runbook: policies/etl-runbook.md
       - Data Usage Terms: terms/data-usage.md
+
   - Insights: insights.md
-  - Contact: contact.md
 
 markdown_extensions:
   - admonition
   - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - tables
-  - attr_list
-  - md_in_html
-  - toc:
-      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
   - search

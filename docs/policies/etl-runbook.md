@@ -94,4 +94,4 @@ ORDER BY revenue DESC;
 
 Every run must log: start/end time, row counts per table, and warning count.
 Logs are retained **90 days**. Unmatched-product revenue is reviewed at the
-Monday data-quality meeting (see [Data Governance §6](data-governance.md)).
+Monday data-quality meeting (see [Data Governance 6](data-governance.md)).

@@ -35,9 +35,10 @@ The BI warehouse produces the data that underpins Marathon's public ESG commitme
 
 ```mermaid
 graph LR
-    A[Operations<br/>deliveries, agents, inventory] --> B[BI Warehouse<br/>etl_test]
-    B --> C[ESG Dashboards]
-    C --> D[Annual Sustainability Report]
-    C --> E[Grant compliance<br/>JICA ACCESS]
-    C --> F[Board ESG review]
+    A["Operations<br/>deliveries, agents, inventory"] --> B["BI Warehouse<br/>etl_test"]
+    B --> C["ESG Dashboards"]
+    C --> D["Annual Sustainability Report"]
+    C --> E["Grant compliance<br/>JICA ACCESS"]
+    C --> F["Board ESG review"]
+```
 

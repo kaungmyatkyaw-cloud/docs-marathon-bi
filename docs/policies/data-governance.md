@@ -58,8 +58,8 @@ Golden record selection (enforced in [ETL Guide 4](../guides/etl-guide.md)):
 
 | KPI | Threshold | Check |
 |---|---|---|
-| Master match rate | ≥ 95% | Runbook §Validation |
-| Duplicate PK in aggregates | 0 | Runbook §Validation |
+| Master match rate | ≥ 95% | Runbook Validation |
+| Duplicate PK in aggregates | 0 | Runbook Validation |
 | Daily ETL completion | ≤ 06:00 | Scheduler log |
 | Unmatched revenue review | Weekly | Monday data-quality meeting |
 
@@ -80,7 +80,7 @@ Golden record selection (enforced in [ETL Guide 4](../guides/etl-guide.md)):
 2. Open a **Pull Request** with impact notes.
 3. **Review** by BI Lead; **approval** by data owner for schema changes.
 4. Merge → docs auto-deploy; ETL changes deploy in the maintenance window.
-5. Run **post-deploy validation** (Runbook §Validation).
+5. Run **post-deploy validation** (Runbook Validation).
 
 !!! danger "Production Protection"
     Direct `INSERT/UPDATE/DELETE` on `etl_test` outside the ETL pipeline is prohibited except for approved manual mappings (`match_method = 'MANUAL'`), which must be logged.

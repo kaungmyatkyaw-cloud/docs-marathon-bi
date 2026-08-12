@@ -2,6 +2,7 @@
 title: Home
 ---
 
+
 # ⚖️ Marathon BI — Truth in Every Number
 
 !!! quote "Our Standard of Evidence"
@@ -81,7 +82,7 @@ title: Home
     ---
 
     Track CO₂, women-in-workforce, agent income and regional coverage — the data behind Marathon's sustainability story.
-    
+
 </div>
 
 ## 📊 Initiative at a Glance

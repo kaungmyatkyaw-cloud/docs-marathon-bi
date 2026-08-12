@@ -15,13 +15,13 @@ title: Contact
 | Severity | Example | Action |
 |---|---|---|
 | Low | One product unmapped | Log for Monday data-quality meeting |
-| Medium | Match rate < 95% | Rebuild bridge — [Runbook §5](policies/etl-runbook.md) |
+| Medium | Match rate < 95% | Rebuild bridge — [Runbook 5](policies/etl-runbook.md) |
 | High | ETL failed 3× / revenue wrong | Page BI Lead + open incident |
 
 ## Team
 
 - **BI Lead / Data Engineering:** Kaung Myat Kyaw
-- **Data Governance Committee:** see [Data Governance §4](policies/data-governance.md)
+- **Data Governance Committee:** see [Data Governance 4](policies/data-governance.md)
 
 ## Company Contacts (from marathonmyanmar.com)
 
