@@ -33,6 +33,7 @@ updated: 2026-08-12
 ## 2. Roadmap
 
 ```mermaid
+%%{init: {'fontSize': '17px', 'gantt': {'barHeight': 34, 'barGap': 12, 'topPadding': 80, 'leftPadding': 190, 'rightPadding': 60, 'sectionFontSize': 17, 'useWidth': 1400}}}%%
 gantt
     title Unified DW Initiative — Epic Timeline
     dateFormat YYYY-MM-DD
@@ -59,8 +60,8 @@ gantt
 
 | WBS Task | Technical Document |
 |---|---|
-| Master products list / mapping | [ETL Guide §4 — Pipeline A](../guides/etl-guide.md) |
-| Sales fact build | [ETL Guide §5 — Pipeline B](../guides/etl-guide.md) |
+| Master products list / mapping | [ETL Guide 4 — Pipeline A](../guides/etl-guide.md) |
+| Sales fact build | [ETL Guide 5 — Pipeline B](../guides/etl-guide.md) |
 | Daily refresh procedure | [ETL Runbook](../policies/etl-runbook.md) |
 | Schema audit & findings | [Epic 1](epic-1-source-analysis.md) · [Schema Appendix](../appendix/database-schema.md) |
 | Governance & change control | [Data Governance](../policies/data-governance.md) |
