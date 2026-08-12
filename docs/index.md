@@ -1,18 +1,95 @@
-# Marathon BI Documentation
+---
+title: Home
+---
 
-Welcome to the Unified Data Warehouse documentation library.
+# ⚖️ Marathon BI — CLICK. TRACK. RELAX.
 
-## Project Status
+!!! quote "Our Mission — Marathon Myanmar"
+    *To empower businesses and individuals to ship products direct to anyone
+    and collect payment anywhere in Myanmar.*
 
-| Sub-Project | Status | Completion |
-|-------------|--------|------------|
-| Master Data Mapping | ✅ Complete | 100% |
-| Sales Fact ETL | ✅ Complete | 100% |
-| BI Reports Setup | In Progress | 60% |
-| Data Quality Framework | Planned | 0% |
+The **BI & Data Warehouse** team turns Marathon's nationwide delivery, payment and
+distribution data into clear visual stories — accurate, complete and defensible,
+*beyond reasonable doubt*.
 
-## Quick Links
+[What we do](what-we-do.md){ .md-button .md-button--primary }
+[Who we are](about.md){ .md-button }
+[See our work](projects/index.md){ .md-button }
 
-- [ETL Guide](guides/etl-guide.md)
-- [Project Status](projects/index.md)
-- [Data Governance](policies/data-governance.md)
+---
+
+## 🚚 Marathon at a Glance
+
+<div class="grid cards" markdown>
+
+-   :material-map-marker-radius:{ .lg .middle } **Nationwide Reach**
+
+    ---
+
+    A network across **100+ cities** in **12 regions**, covering **65% of Myanmar's urban population**.
+
+-   :material-cash-fast:{ .lg .middle } **COD Settlement in 3 Days**
+
+    ---
+
+    Cash collected anywhere, settled to merchants in cash or bank within **three working days**.
+
+-   :material-bicycle:{ .lg .middle } **Green Last Mile**
+
+    ---
+
+    **80%** of Yangon parcels delivered by bicycle with **zero CO₂ emission** — 70% reusable packaging.
+
+-   :material-account-group:{ .lg .middle } **People-First Network**
+
+    ---
+
+    **100+ employees**, **50% women agents**, **85% women merchants** — creating $50–$500/month extra income for regional SMEs.
+
+</div>
+
+## 🏛️ What the BI Team Delivers
+
+<div class="grid cards" markdown>
+
+-   :material-chart-box:{ .lg .middle } **Descriptive & Diagnostic Analytics**
+
+    ---
+
+    *What happened, and why?* Daily delivery, sales, stock and margin reporting for every BU.
+
+-   :material-trending-up:{ .lg .middle } **Predictive & Prescriptive Analytics**
+
+    ---
+
+    *What will happen, what should we do?* Demand forecasts, reorder points, FEFO expiry alerts.
+
+-   :material-database-sync:{ .lg .middle } **Data Warehouse & ETL**
+
+    ---
+
+    Unified SKUs, cross-BU mapping and a daily sync from the DAS ERP into a star-schema warehouse.
+
+-   :material-view-dashboard:{ .lg .middle } **Executive Dashboards**
+
+    ---
+
+    Looker Studio & Power BI boards for leadership, operations and finance.
+
+</div>
+
+## 📊 Initiative at a Glance
+
+| Track / Epic | Status | Completion |
+|---|:---:|:---:|
+| 🗄️ Epic 1 · Source System Analysis | ✅ Done | 100% |
+| 🔄 Epic 2 · Infrastructure & ETL | 🚧 Active | 50% |
+| 🏗️ Epic 3 · MDM & DW Build | 🚧 Active | 45% |
+| 📊 Epic 4 · OKRs, KPIs & BI Delivery | 📋 Planned | 10% |
+
+Task-level detail lives on the [full project board](projects/index.md).
+
+## 🔎 Latest Insights
+
+- [7 OLTP anti-patterns we found in `das-db`](insights.md) — and how they shape our ETL design
+- [Why the ERP is our Single Source of Truth](insights.md#the-purpose-of-an-erp)

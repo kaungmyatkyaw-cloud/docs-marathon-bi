@@ -4,25 +4,16 @@ site_url: https://kaungmyatkyaw-cloud.github.io/docs-marathon-bi/
 
 theme:
   name: material
-  language: en
+  logo: material/scale-balance     # ⚖️ scales icon in the header
   palette:
-    # Light mode — warm cream & coffee
     - scheme: default
-      primary: custom
-      accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    # Dark mode — deep espresso
     - scheme: slate
-      primary: custom
-      accent: custom
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-  font:
-    text: 'Noto Serif'
-    code: 'Fira Code'
   features:
     - navigation.tabs
     - navigation.sections
@@ -31,34 +22,36 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
-    - content.tabs.link
-  icon:
-    repo: fontawesome/brands/github
 
 extra_css:
-  - stylesheets/coffee-theme.css
+  - stylesheets/justice-theme.css
+
+extra_javascript:
+  - javascripts/anim.js
 
 repo_name: kaungmyatkyaw-cloud/docs-marathon-bi
 repo_url: https://github.com/kaungmyatkyaw-cloud/docs-marathon-bi
 
 nav:
   - Home: index.md
-  - Projects:
-      - Overview & Status: projects/index.md
+  - What We Do: what-we-do.md
+  - Who We Are: about.md
+  - Our Work:
+      - Projects & Status: projects/index.md
       - Daily Routine: projects/daily-routine.md
       - Epic 1 · Source Analysis: projects/epic-1-source-analysis.md
       - Epic 2 · Infrastructure & ETL: projects/epic-2-infrastructure-etl.md
       - Epic 3 · MDM & DW Build: projects/epic-3-mdm-dw.md
       - Epic 4 · Performance & BI: projects/epic-4-performance-bi.md
-  - Guides:
+  - Documentation:
       - ETL Guide: guides/etl-guide.md
-  - Policies:
+      - Database Schema: appendix/database-schema.md
+  - Policies & Terms:
       - Data Governance: policies/data-governance.md
       - ETL Runbook: policies/etl-runbook.md
-  - Terms:
-      - Data Usage: terms/data-usage.md
-  - Appendix:
-      - Database Schema: appendix/database-schema.md
+      - Data Usage Terms: terms/data-usage.md
+  - Insights: insights.md
+  - Contact: contact.md
 
 markdown_extensions:
   - admonition

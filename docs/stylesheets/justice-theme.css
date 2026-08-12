@@ -1,0 +1,230 @@
+/* ═══════════════════════════════════════════════════════════
+   ⚖️ JUSTICE THEME — Navy, Brass & Marble
+   ═══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ── 1) COLOR PALETTE ─────────────────────────────────────── */
+:root {
+  --md-primary-fg-color: #14213D;          /* header — deep navy */
+  --md-primary-fg-color--light: #1F3251;
+  --md-primary-fg-color--dark: #0B1428;
+  --md-primary-bg-color: #F8F7F2;          /* header text — ivory */
+
+  --md-accent-fg-color: #C9A227;           /* brass gold */
+  --md-accent-fg-color--transparent: rgba(201, 162, 39, 0.12);
+
+  --md-default-bg-color: #FAF9F6;          /* marble white */
+  --md-default-fg-color: #1C2534;
+  --md-default-fg-color--light: #3D4A5C;
+
+  --md-code-bg-color: #101826;             /* dark slate */
+  --md-code-fg-color: #E3C07B;             /* parchment gold */
+
+  --md-footer-bg-color: #0B1428;
+}
+
+/* Dark mode — chambers at night */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1F3251;
+  --md-primary-fg-color--dark: #14213D;
+  --md-default-bg-color: #0E1524;
+  --md-default-fg-color: #E8E6DF;
+  --md-default-fg-color--light: #B8BFC9;
+  --md-code-bg-color: #0A0F1A;
+  --md-code-fg-color: #E3C07B;
+}
+
+/* ── 2) LAYOUT WIDTH ──────────────────────────────────────── */
+.md-grid { max-width: 90rem; }
+
+/* ── 3) TYPOGRAPHY — legal-document serifs ────────────────── */
+body, .md-typeset {
+  font-family: 'Source Serif 4', Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.md-typeset h1 { font-size: 2.2rem; font-weight: 700; color: var(--md-primary-fg-color); }
+.md-typeset h2 { font-size: 1.6rem; font-weight: 600; color: var(--md-primary-fg-color);
+                 border-bottom: 2px solid var(--md-accent-fg-color); padding-bottom: 0.3rem; }
+.md-typeset h3 { font-size: 1.3rem; }
+.md-typeset h4 { font-size: 1.1rem; }
+
+.md-typeset a { color: var(--md-primary-fg-color); font-weight: 500; }
+.md-typeset a:hover { color: var(--md-accent-fg-color); }
+
+/* ── 4) HEADER & FOOTER — brass trim ──────────────────────── */
+.md-header { border-bottom: 3px solid var(--md-accent-fg-color); }
+.md-footer { border-top: 3px solid var(--md-accent-fg-color); }
+
+/* ── 5) TABLES — navy bench ───────────────────────────────── */
+.md-typeset table {
+  font-size: 1rem;
+  border: 1px solid #D8D5CC;
+  box-shadow: 0 2px 8px rgba(20, 33, 61, 0.08);
+}
+.md-typeset th {
+  font-size: 1.05rem;
+  background-color: var(--md-primary-fg-color);
+  color: #F3E9C9;
+  padding: 0.7em 1em;
+}
+.md-typeset td { font-size: 1rem; padding: 0.6em 1em; }
+.md-typeset tr:nth-child(even) { background-color: rgba(201, 162, 39, 0.06); }
+
+/* ── 6) CODE BLOCKS — slate & parchment ───────────────────── */
+.md-typeset pre {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  background-color: var(--md-code-bg-color);
+  color: var(--md-code-fg-color);
+  border-left: 3px solid var(--md-accent-fg-color);
+  border-radius: 4px;
+}
+.md-typeset pre code { font-size: 0.95rem; background: none; color: inherit; }
+.md-typeset code {
+  font-size: 0.95em;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  background-color: rgba(20, 33, 61, 0.08);
+  color: var(--md-primary-fg-color);
+  border-radius: 3px;
+  padding: 0.15em 0.4em;
+}
+
+/* ── 7) ADMONITIONS — gavel callouts ──────────────────────── */
+.md-typeset .admonition, .md-typeset details {
+  font-size: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(20, 33, 61, 0.1);
+}
+.md-typeset .admonition-title, .md-typeset details summary {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+}
+
+/* ── 8) MERMAID — full width ──────────────────────────────── */
+.md-typeset .mermaid svg {
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+}
+
+/* ── 9) NAV / EXTRAS ──────────────────────────────────────── */
+.md-nav__link { font-size: 0.95rem; }
+.md-nav__link--active { color: var(--md-primary-fg-color); font-weight: 600; }
+
+::selection { background-color: var(--md-accent-fg-color); color: #0B1428; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--md-default-bg-color); }
+::-webkit-scrollbar-thumb { background: #14213D; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A227; }
+
+/* ── 10) MOBILE RESPONSIVENESS ────────────────────────────── */
+
+/* Phones & small tablets */
+@media screen and (max-width: 640px) {
+
+  /* Scale down typography */
+  .md-typeset      { font-size: 0.95rem; }
+  .md-typeset h1   { font-size: 1.75rem; }
+  .md-typeset h2   { font-size: 1.35rem; }
+  .md-typeset h3   { font-size: 1.15rem; }
+
+  /* Tables: compact + horizontal scroll (Material wraps them) */
+  .md-typeset table { font-size: 0.85rem; }
+  .md-typeset th    { font-size: 0.9rem;  padding: 0.5em 0.6em; }
+  .md-typeset td    { font-size: 0.85rem; padding: 0.5em 0.6em; }
+
+  /* Mermaid / Gantt: scroll sideways instead of shrinking to unreadable */
+  .md-typeset .mermaid {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .md-typeset .mermaid svg {
+    width: auto !important;
+    min-width: 48rem;      /* keeps labels readable; swipe to scroll */
+  }
+
+  /* Code blocks slightly smaller */
+  .md-typeset pre      { font-size: 0.8rem; }
+  .md-typeset pre code { font-size: 0.8rem; }
+
+  /* Hero buttons stack full-width */
+  .md-typeset .md-button {
+    display: block;
+    margin: 0.4rem 0;
+    text-align: center;
+  }
+
+  /* Admonitions tighter padding */
+  .md-typeset .admonition, .md-typeset details { font-size: 0.9rem; }
+}
+
+/* Medium tablets — gentle in-between sizing */
+@media screen and (min-width: 641px) and (max-width: 1024px) {
+  .md-typeset h1 { font-size: 2rem; }
+  .md-typeset table { font-size: 0.9rem; }
+  .md-typeset .mermaid svg { min-width: 40rem; }
+}
+
+/* ── 11) ANIMATIONS ───────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Hero entrance (staggered) */
+.md-content h1                    { animation: fadeUp .7s ease both; }
+.md-content h1 + .admonition,
+.md-content h1 + p                { animation: fadeUp .7s .15s ease both; }
+.md-content .md-button            { animation: fadeUp .7s .25s ease both; }
+
+/* Gold underline draws itself under every H2 */
+.md-typeset h2 { border-bottom: none; position: relative; }
+.md-typeset h2::after {
+  content: "";
+  position: absolute; left: 0; bottom: -2px;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--md-accent-fg-color), transparent);
+  transform-origin: left;
+  animation: drawLine .9s ease both;
+}
+
+/* Scroll-reveal (driven by anim.js) */
+[data-reveal] { opacity: 0; }
+[data-reveal].is-visible { animation: fadeUp .65s ease both; }
+
+/* Card hover lift + brass glow */
+.grid.cards li {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  border-radius: 6px;
+}
+.grid.cards li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(20, 33, 61, .18);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Shimmer sweep on primary button */
+.md-button--primary {
+  background-image: linear-gradient(110deg, #14213D 40%, #2A4370 50%, #14213D 60%);
+  background-size: 200% auto;
+  transition: background-position .6s ease;
+}
+.md-button--primary:hover { background-position: right center; }
+
+/* Accessibility: respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  [data-reveal] { opacity: 1 !important; }
+}
