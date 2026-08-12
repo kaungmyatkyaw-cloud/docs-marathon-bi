@@ -4,7 +4,7 @@ site_url: https://kaungmyatkyaw-cloud.github.io/docs-marathon-bi/
 
 theme:
   name: material
-  logo: material/scale-balance     # ⚖️ scales icon in the header
+  logo: assets/logo.svg
   palette:
     - scheme: default
       toggle:
@@ -36,13 +36,9 @@ nav:
   - Home: index.md
   - What We Do: what-we-do.md
   - Who We Are: about.md
+  - Sustainability: sustainability.md      # ← NEW
   - Our Work:
-      - Projects & Status: projects/index.md
-      - Daily Routine: projects/daily-routine.md
-      - Epic 1 · Source Analysis: projects/epic-1-source-analysis.md
-      - Epic 2 · Infrastructure & ETL: projects/epic-2-infrastructure-etl.md
-      - Epic 3 · MDM & DW Build: projects/epic-3-mdm-dw.md
-      - Epic 4 · Performance & BI: projects/epic-4-performance-bi.md
+      # ...existing projects entries
   - Documentation:
       - ETL Guide: guides/etl-guide.md
       - Database Schema: appendix/database-schema.md

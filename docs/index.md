@@ -2,19 +2,19 @@
 title: Home
 ---
 
-# ⚖️ Marathon BI — CLICK. TRACK. RELAX.
+# ⚖️ Marathon BI — Truth in Every Number
 
-!!! quote "Our Mission — Marathon Myanmar"
-    *To empower businesses and individuals to ship products direct to anyone
-    and collect payment anywhere in Myanmar.*
+!!! quote "Our Standard of Evidence"
+    *"Facts are stubborn things; and whatever may be our wishes, our inclinations, 
+    or the dictates of our passion, they cannot alter the state of facts and evidence."*
+    <br>— **John Adams**
 
-The **BI & Data Warehouse** team turns Marathon's nationwide delivery, payment and
-distribution data into clear visual stories — accurate, complete and defensible,
-*beyond reasonable doubt*.
+    Like evidence in a court of law, every figure we publish must be 
+    **accurate, complete, and defensible — beyond reasonable doubt.**
 
 [What we do](what-we-do.md){ .md-button .md-button--primary }
-[Who we are](about.md){ .md-button }
 [See our work](projects/index.md){ .md-button }
+[Who we are](about.md){ .md-button }
 
 ---
 
@@ -76,6 +76,12 @@ distribution data into clear visual stories — accurate, complete and defensibl
 
     Looker Studio & Power BI boards for leadership, operations and finance.
 
+-   :material-leaf:{ .lg .middle } **ESG Measurement & Reporting**
+
+    ---
+
+    Track CO₂, women-in-workforce, agent income and regional coverage — the data behind Marathon's sustainability story.
+    
 </div>
 
 ## 📊 Initiative at a Glance

@@ -81,6 +81,12 @@ logistics and business management.
 | 3-tier cities with underserved communities | 30% |
 | Languages · ethnic groups · religions in network | 8 · 7 · 3 |
 
+## The BI Contribution to Sustainability
+
+The BI warehouse is the **measurement engine** behind every ESG number on the
+corporate site. See [Sustainability](sustainability.md) for how we track and
+report them.
+
 ## The BI Team's Role
 
 !!! info "Bridge, not bottleneck"

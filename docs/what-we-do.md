@@ -2,7 +2,7 @@
 title: What We Do
 ---
 
-# 🥐 What We Do
+# 🏛️ What We Do
 
 We deliver the full analytics value chain — from raw ERP transactions to executive decisions.
 
