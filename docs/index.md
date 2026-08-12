@@ -93,6 +93,7 @@ title: Home
 | 🔄 Epic 2 · Infrastructure & ETL | 🚧 Active | 50% |
 | 🏗️ Epic 3 · MDM & DW Build | 🚧 Active | 45% |
 | 📊 Epic 4 · OKRs, KPIs & BI Delivery | 📋 Planned | 10% |
+| 🎫 Epic 5 · Support Ops & Ticketing (Zammad) | 🚧 Active | 20% | [Epic 5](epic-5)
 
 Task-level detail lives on the [full project board](projects/index.md).
 
