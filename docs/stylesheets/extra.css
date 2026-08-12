@@ -38,3 +38,15 @@
   max-width: none !important;
   height: auto !important;
 }
+
+/* ── 7) Brand-colored header ─────────────────── */
+:root {
+  --md-primary-fg-color: #B71C1C;        /* header background */
+  --md-primary-fg-color--dark: #8E1414;  /* header shadow / hover */
+  --md-primary-bg-color: #FFFFFF;        /* header text */
+}
+
+/* Same brand color in dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #B71C1C;
+}
