@@ -8,10 +8,6 @@ description: Official BI & IT announcements, rollout notices and change communic
 !!! tip "Distribution"
     Mirrored in the Monday briefing email. Last updated **2026-08-13**.
 
-## 2026-08-13 — Library v2 published
-New **Library** section live: [Library Index](library/index.md), [Master Report Catalog](library/reports-catalog.md),
-[Forms & Templates](library/forms-index.md) and [BI Skills Matrix](library/skills-matrix.md).
-
 ## 2026-08-12 — BI Documentation Library is live
 This site is now the **single source of truth** for BI policies, procedures, report catalog,
 automations and forms. Access restricted to `@marathonmyanmar.com` via Cloudflare Access.
