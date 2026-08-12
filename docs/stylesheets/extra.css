@@ -52,7 +52,3 @@
 .md-typeset details {
   font-size: 0.9rem;
 }
-
-html {
-  font-size: 137.5%;   /* default is 125% → makes whole UI ~10% bigger */
-}
