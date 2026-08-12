@@ -1,9 +1,9 @@
----
+﻿---
 title: Forms & Templates
-description: Every operational form, survey and acknowledgement — with owners and cadence
+description: Every operational form, survey and acknowledgement â€” with owners and cadence
 ---
 
-# 📋 Forms & Templates
+# ðŸ“‹ Forms & Templates
 
 | ID | Form | Purpose | Owner | Cadence | Channel |
 |---|---|---|---|---|---|
@@ -17,13 +17,13 @@ description: Every operational form, survey and acknowledgement — with owners 
 | F-08 | Delivery Quality Survey | K-ME-02 | M-Express | Weekly sample | Phone/Forms |
 | F-09 | BI Ticket Quality Survey | K-BI-02 | BI | Quarterly | Forms |
 
-## F-01 — Service Ticket { #f-01 }
+## F-01 â€” Service Ticket { #f-01 }
 
 Raise via [techsupport.marathonmyanmar.com](https://techsupport.marathonmyanmar.com).
 Set priority per the [SLA Guidelines](../policies/ticket-sla-guidelines.md) and tag the
 request type (`report-request`, `data-correction`, `access`).
 
-## F-02 Report Request (template)
+## F-02 Report Request (template) { #f-02 }
 
 ```text
 Requester / Dept:            BU:
@@ -33,7 +33,7 @@ Preferred channel:  [ ] Email CSV  [ ] Dashboard  [ ] Sheet
 Needed by:                   Priority (per SLA):
 ```
 
-## F-03 Data Correction (template)
+## F-03 Data Correction (template) { #f-03 }
 
 ```text
 System (das-db/Zammad):      Table/record ID:
@@ -41,7 +41,7 @@ Current value:               Correct value:
 Evidence (doc/invoice no.):  Requested by:
 ```
 
-## F-04 Access / Token Request (template)
+## F-04 Access / Token Request (template) { #f-04 }
 
 ```text
 System:  [ ] MySQL etl_test  [ ] GAS  [ ] BI tool  [ ] Zammad
@@ -49,8 +49,8 @@ Role needed:  read / write / admin      Duration:
 Business justification:                 Approver (HOD):
 ```
 
-## F-05 — Policy Acknowledgement { #f-05 }
+## F-05 â€” Policy Acknowledgement { #f-05 }
 
-Annual sign-off (per [IT AUP §8](../policies/it-acceptable-use.md)) covering the
+Annual sign-off (per [IT AUP Â§8](../policies/it-acceptable-use.md)) covering the
 **IT Acceptable Use Policy** and **Data Governance Policy**. Collected by HR each
 January; new joiners sign during onboarding.
