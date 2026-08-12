@@ -46,6 +46,7 @@ nav:
       - Epic 2 · Infrastructure & ETL: projects/epic-2-infrastructure-etl.md
       - Epic 3 · MDM & DW Build: projects/epic-3-mdm-dw.md
       - Epic 4 · Performance & BI: projects/epic-4-performance-bi.md
+      - Epic 4 · OKR & KPI Framework: projects/epic-4-okr-kpi-framework.md   # ← NEW
       - Epic 5 · Zammad / Ticket Mgmt: projects/epic-5-zammad-integration.md
 
   - Documentation:
