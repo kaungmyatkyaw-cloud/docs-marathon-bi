@@ -33,12 +33,20 @@ nav:
   - Home: index.md
   - Projects:
       - Overview & Status: projects/index.md
+      - Daily Routine: projects/daily-routine.md
+      - Epic 1 · Source Analysis: projects/epic-1-source-analysis.md
+      - Epic 2 · Infrastructure & ETL: projects/epic-2-infrastructure-etl.md
+      - Epic 3 · MDM & DW Build: projects/epic-3-mdm-dw.md
+      - Epic 4 · Performance & BI: projects/epic-4-performance-bi.md
   - Guides:
       - ETL Guide: guides/etl-guide.md
   - Policies:
       - Data Governance: policies/data-governance.md
+      - ETL Runbook: policies/etl-runbook.md
   - Terms:
       - Data Usage: terms/data-usage.md
+  - Appendix:
+      - Database Schema: appendix/database-schema.md
 
 markdown_extensions:
   - admonition

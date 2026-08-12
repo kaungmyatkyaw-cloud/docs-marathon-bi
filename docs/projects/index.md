@@ -1,102 +1,67 @@
 ---
 title: Projects Overview & Status
-description: Sub-project registry, completion status, and roadmap for the Unified Data Warehouse Initiative
+description: Work Breakdown Structure (WBS) of the Unified DW Initiative — daily routine + 4 Epics
 owner: Kaung Myat Kyaw
 updated: 2026-08-12
 ---
 
 # 📊 Projects Overview & Status
 
-!!! abstract "Initiative Goal"
-    Unify the fragmented data systems of the Business Units (**M-Tech, M-Kitchen, Marathon Express, M-Trading, ShweZay**) into a single data warehouse — enabling cross-BU analytics, standardized master data, and executive-level BI.
+!!! abstract "Source of Truth"
+    This tracker formalizes the team **TO DO LIST** into a Work Breakdown Structure.
+    Every task below maps to an Epic page, a technical document, and a completion status.
 
----
+## 1. Portfolio Dashboard
 
-## 1. Sub-Project Registry
-
-Every sub-project maps to its technical documentation. Completion status is updated each sprint.
-
-| # | Sub-Project | Phase | Status | Completion | Key Deliverables | Reference |
-|---|---|---|---|---|---|---|
-| 1 | Schema Discovery & Audit | 1 | ✅ Done | 100% | `das-db` schema docs, OLTP anti-pattern report | [ETL Guide §3](../guides/etl-guide.md) |
-| 2 | Master Data Build | 2 | ✅ Done | 100% | `dim_master_products` (18,906 golden records), `bridge_product_mapping` | [ETL Guide §4](../guides/etl-guide.md) |
-| 3 | Sales Fact ETL | 3 | ✅ Done | 100% | `fact_saless` (~203K rows), `map_product_master`, `agg_product_sales` | [ETL Guide §5](../guides/etl-guide.md) |
-| 4 | Documentation Library | 4 | 🚧 Active | 80% | This MkDocs site + Cloudflare Access gate | [Home](../index.md) |
-| 5 | Executive BI Dashboards | 4 | 🚧 Active | 30% | Group sales dashboard v1 (Power BI / Looker) | — |
-| 6 | Inventory & Batch ETL | 3 | 📋 Planned | 0% | `fact_inventory_batch`, FEFO expiry alerts | — |
-| 7 | Finance Consolidation | 3 | 📋 Planned | 0% | Cross-BU AP/AR exposure view | — |
-| 8 | Optimization & Go-Live | 5 | 📋 Planned | 0% | Performance tuning, training, support | — |
+| Track / Epic | Scope | Tasks | Done | Completion | Detail Page |
+|---|---|:---:|:---:|:---:|---|
+| 🌅 Daily Routine | Reporting & analytics cadence | 6 | 2 | ~50% | [Daily Routine](daily-routine.md) |
+| 🗄️ Epic 1 | Source System Analysis (`das-db`) | 2 | 2 | **100%** | [Epic 1](epic-1-source-analysis.md) |
+| 🔄 Epic 2 | Infrastructure & ETL Architecture | 2 | 1 | 50% | [Epic 2](epic-2-infrastructure-etl.md) |
+| 🏗️ Epic 3 | MDM & Data Warehouse Build | 9 | 4 | 45% | [Epic 3](epic-3-mdm-dw.md) |
+| 📊 Epic 4 | OKRs, KPIs & BI Delivery | 7 | 0 | 10% | [Epic 4](epic-4-performance-bi.md) |
 
 ### Status Legend
 
 | Icon | Meaning |
-|---|---|
-| ✅ Done | Completed, validated, and in production |
-| 🚧 Active | Currently in development |
-| 📋 Planned | Scheduled, not started |
-| ⏸️ On Hold | Paused pending decision |
+|:---:|---|
+| ✅ | Done — delivered & validated |
+| 🚧 | Active — in progress |
+| 📋 | Planned — not started |
+| 🔁 | Recurring — daily/weekly cadence |
 
----
-
-## 2. Delivery Roadmap
+## 2. Roadmap
 
 ```mermaid
 gantt
-    title Unified DW Initiative — Delivery Timeline
+    title Unified DW Initiative — Epic Timeline
     dateFormat YYYY-MM-DD
     axisFormat %m/%d
-    section Phase 1 · Discovery
-    Schema exploration & audit        :done, p1, 2026-07-01, 10d
-    section Phase 2 · Master Data
-    dim_master_products build         :done, p2, 2026-07-11, 10d
-    Bridge mapping + normalization    :done, p2b, after p2, 5d
-    section Phase 3 · ETL
-    Sales fact ETL (Invoice + POS)    :done, p3, 2026-07-25, 12d
-    Inventory & batch ETL             :p6, 2026-08-20, 14d
-    Finance consolidation             :p7, after p6, 14d
-    section Phase 4 · BI
-    Documentation library             :active, p4, 2026-08-10, 12d
-    Executive dashboards              :active, p5, 2026-08-15, 21d
-    section Phase 5 · Optimization
-    Tuning, training, go-live         :p8, after p5, 14d
+    section Epic 1 · Source Analysis
+    Schema observation (147 tbl)   :done, e1a, 2026-07-01, 7d
+    Findings & explanation         :done, e1b, after e1a, 4d
+    section Epic 2 · Infrastructure
+    DigitalOcean DB proposal       :done, e2a, 2026-07-10, 5d
+    IT team follow-up (prod DB)    :active, e2b, 2026-07-20, 20d
+    section Epic 3 · MDM & DW
+    Master products list           :done, e3a, 2026-07-12, 8d
+    Regex / name normalization     :done, e3b, after e3a, 4d
+    Cross-dimension mapping        :done, e3c, after e3b, 5d
+    UOM detection & base UOMs      :active, e3d, 2026-08-15, 10d
+    Auto-SKU + conversion factors  :e3e, after e3d, 10d
+    section Epic 4 · KPIs & BI
+    KPI DB modeling                :active, e4a, 2026-08-18, 10d
+    SLA sheets + cron measurement  :e4b, after e4a, 12d
+    Looker Studio SLA↔KRs board    :e4c, after e4b, 10d
 ```
 
----
+## 3. Cross-Mapping: WBS → Technical Documentation
 
-## 3. Validated Metrics (Latest Full Load)
-
-| Metric | Value | Target | Status |
-|---|---|---|---|
-| Master products (golden records) | 18,906 | — | ✅ |
-| Sales fact rows (Invoice + POS) | ~203,713 | — | ✅ |
-| Master match rate (post-bridge) | ≥ 99.4% | ≥ 95% | ✅ |
-| Active Business Units in scope | 7 | 5 (Phase 1) | ✅ |
-| Duplicate aggregate keys | 0 | 0 | ✅ |
-
-!!! note "Figures refresh on every full ETL run — see the [ETL Runbook](../policies/etl-runbook.md) for the validation queries."
-
----
-
-## 4. Current Sprint Board
-
-- [x] Build `dim_master_products` golden record (barcode → sku priority)
-- [x] Normalize product names (`UPPER`, `*→X`, strip spaces)
-- [x] Unified `fact_saless` with dual product context (BU + master)
-- [x] Cross-BU bridge (`map_product_master`) + backfill
-- [ ] Deploy docs site with `@marathonmyanmar.com` email gate
-- [ ] Connect Power BI to `agg_product_sales`
-- [ ] Executive dashboard v1 (revenue, margin, cross-BU share)
-- [ ] Inventory batch ETL design (`stock_summaries`, `stock_histories`)
-
----
-
-## 5. Objective → Delivery Mapping
-
-| Initiative Objective | Delivered By | Status |
-|---|---|---|
-| Unify product SKUs across BUs | `dim_master_products` + `map_product_master` | ✅ |
-| Cross-BU analytics | `fact_saless.business_id` + `sold_across_bu_count` | ✅ |
-| Standardized UOM conversions | `product_conversion_links` mapping (design) | ⏳ Phase 3 |
-| Consolidated AP/AR | Finance consolidation project | 📋 |
-| Batch traceability / FEFO | Inventory & batch ETL | 📋 |
-| Executive BI dashboards | Dashboards project | 🚧 |
+| WBS Task | Technical Document |
+|---|---|
+| Master products list / mapping | [ETL Guide §4 — Pipeline A](../guides/etl-guide.md) |
+| Sales fact build | [ETL Guide §5 — Pipeline B](../guides/etl-guide.md) |
+| Daily refresh procedure | [ETL Runbook](../policies/etl-runbook.md) |
+| Schema audit & findings | [Epic 1](epic-1-source-analysis.md) · [Schema Appendix](../appendix/database-schema.md) |
+| Governance & change control | [Data Governance](../policies/data-governance.md) |
+| Access & usage rules | [Data Usage Terms](../terms/data-usage.md) |
