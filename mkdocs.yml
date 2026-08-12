@@ -1,0 +1,61 @@
+site_name: Marathon BI Documentation
+site_description: Unified Data Warehouse - Documentation Library
+site_url: https://kaungmyatkyaw-cloud.github.io/docs-marathon-bi/
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  icon:
+    repo: fontawesome/brands/github
+
+repo_name: kaungmyatkyaw-cloud/docs-marathon-bi
+repo_url: https://github.com/kaungmyatkyaw-cloud/docs-marathon-bi
+
+nav:
+  - Home: index.md
+  - Projects:
+    - Overview & Status: projects/index.md
+  - Guides:
+    - ETL Guide: guides/etl-guide.md
+  - Policies:
+    - Data Governance: policies/data-governance.md
+  - Terms:
+    - Data Usage: terms/data-usage.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search
