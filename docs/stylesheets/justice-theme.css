@@ -248,3 +248,70 @@ body, .md-typeset {
   transform: scale(1.06);
   box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.7);
 }
+
+/* ── 14) App store badges ───────────────────────────────── */
+.md-typeset img.app-badge {
+  height: 52px;
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(20, 33, 61, 0.15);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.md-typeset img.app-badge:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(20, 33, 61, 0.28);
+}
+
+/* ── 15) Hover dropdown for top-level nav tabs ──────────── */
+.md-tabs__list {
+  position: relative;
+}
+
+/* Parent tab with children */
+.md-tabs__item--nested {
+  position: relative;
+}
+
+/* Dropdown menu (hidden by default) */
+.md-tabs__item--nested .md-tabs__dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-accent-fg-color);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(20, 33, 61, 0.18);
+  padding: 0.5rem 0;
+  z-index: 100;
+  margin-top: 0.5rem;
+}
+
+/* Show dropdown on hover */
+.md-tabs__item--nested:hover .md-tabs__dropdown {
+  display: block;
+}
+
+/* Dropdown links */
+.md-tabs__dropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+
+.md-tabs__dropdown a:hover {
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+}
+
+/* Arrow indicator for tabs with children */
+.md-tabs__item--nested > .md-tabs__link::after {
+  content: " ⌄";
+  opacity: 0.6;
+  font-size: 0.8em;
+  margin-left: 0.3em;
+}
+

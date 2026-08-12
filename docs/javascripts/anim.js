@@ -42,3 +42,46 @@
     document.addEventListener('DOMContentLoaded', init);
   }
 })();
+
+// Mark tabs with children as nested for hover dropdown
+function markNestedTabs() {
+  document.querySelectorAll('.md-tabs__item').forEach(function(item) {
+    var link = item.querySelector('.md-tabs__link');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    
+    // Check if this tab has children in nav
+    var nav = document.querySelector('.md-nav--primary');
+    if (!nav) return;
+    
+    var navItem = nav.querySelector('a[href="' + href + '"]');
+    if (!navItem) return;
+    
+    var parentLi = navItem.closest('li');
+    if (!parentLi) return;
+    
+    var subNav = parentLi.querySelector('.md-nav__list');
+    if (subNav && subNav.children.length > 1) {
+      item.classList.add('md-tabs__item--nested');
+      
+      // Create dropdown
+      var dropdown = document.createElement('div');
+      dropdown.className = 'md-tabs__dropdown';
+      subNav.querySelectorAll(':scope > li > a').forEach(function(subLink) {
+        var a = document.createElement('a');
+        a.href = subLink.href;
+        a.textContent = subLink.textContent;
+        dropdown.appendChild(a);
+      });
+      item.appendChild(dropdown);
+    }
+  });
+}
+
+// Run on load and after navigation
+if (window.document$ && typeof window.document$.subscribe === 'function') {
+  window.document$.subscribe(markNestedTabs);
+} else {
+  document.addEventListener('DOMContentLoaded', markNestedTabs);
+}

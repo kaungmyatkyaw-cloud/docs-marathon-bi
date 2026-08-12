@@ -39,12 +39,6 @@ extra_javascript:
 nav:
   - Home: index.md
 
-  - About Us:                     # ← hover shows dropdown ⌄
-      - What We Do: what-we-do.md
-      - Who We Are: about.md
-      - Sustainability: sustainability.md
-      - Contact: contact.md
-
   - Our Work:
       - Projects & Status: projects/index.md
       - Daily Routine: projects/daily-routine.md
@@ -63,6 +57,12 @@ nav:
       - Data Usage Terms: terms/data-usage.md
 
   - Insights: insights.md
+
+  - About Us:
+      - What We Do: what-we-do.md
+      - Who We Are: about.md
+      - Sustainability: sustainability.md
+      - Contact: contact.md
 
 markdown_extensions:
   - admonition
