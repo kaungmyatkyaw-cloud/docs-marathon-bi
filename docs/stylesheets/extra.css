@@ -1,0 +1,58 @@
+/* ══════════════════════════════════════════════
+   Marathon BI Docs — Custom Style Overrides
+   ══════════════════════════════════════════════ */
+
+/* ── 1) Page width — slightly reduced (this fix) ─────── */
+.md-grid {
+  max-width: 98rem;   /* was: initial (edge-to-edge) */
+}
+
+/* ── 2) Body content font ─────────────────────────────── */
+.md-typeset {
+  font-size: 0.95rem;          /* comfortable reading size */
+  line-height: 1.55;
+}
+
+/* Headings */
+.md-typeset h1 { font-size: 2.2rem; }
+.md-typeset h2 { font-size: 1.6rem; }
+.md-typeset h3 { font-size: 1.3rem; }
+.md-typeset h4 { font-size: 1.1rem; }
+
+/* ── 3) TABLES — bigger text (the fix you asked for) ──── */
+.md-typeset table {
+  font-size: 0.85rem;                 /* was too small before */
+}
+
+.md-typeset th {
+  font-size: 1.05rem;              /* headers slightly larger */
+}
+
+.md-typeset td {
+  font-size: 1rem;
+  padding: 0.6em 1em;              /* more breathing room */
+}
+
+/* ── 4) CODE BLOCKS — bigger text (SQL, etc.) ─────────── */
+.md-typeset pre {
+  font-size: 0.85rem;              /* code block text */
+  line-height: 1.25;
+}
+
+.md-typeset pre code {
+  font-size: 0.85rem;              /* ensures inner code matches */
+}
+
+.md-typeset code {
+  font-size: 0.85em;               /* inline `code` chips */
+}
+
+/* ── 5) Admonition boxes (info/warning/tip) ───────────── */
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.9rem;
+}
+
+html {
+  font-size: 137.5%;   /* default is 125% → makes whole UI ~10% bigger */
+}
