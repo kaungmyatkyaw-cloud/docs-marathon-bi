@@ -38,7 +38,12 @@ extra_javascript:
 
 nav:
   - Home: index.md
-
+  - Announcements: announcements.md
+  - Library:
+      - 📚 Library Index: library/index.md
+      - Reports Catalog: library/reports-catalog.md
+      - Forms & Templates: library/forms-index.md
+      - BI Skills Matrix: library/skills-matrix.md
   - Our Work:
       - Projects & Status: projects/index.md
       - Daily Routine: projects/daily-routine.md
@@ -46,22 +51,20 @@ nav:
       - Epic 2 · Infrastructure & ETL: projects/epic-2-infrastructure-etl.md
       - Epic 3 · MDM & DW Build: projects/epic-3-mdm-dw.md
       - Epic 4 · Performance & BI: projects/epic-4-performance-bi.md
-      - Epic 4 · OKR & KPI Framework: projects/epic-4-okr-kpi-framework.md   # ← NEW
+      - Epic 4 · OKR & KPI Framework: projects/epic-4-okr-kpi-framework.md
       - Epic 5 · Zammad / Ticket Mgmt: projects/epic-5-zammad-integration.md
-
   - Documentation:
       - ETL Guide: guides/etl-guide.md
       - Email Distribution: guides/email-distribution.md
       - Report Automation (GAS): guides/report-automation.md
       - Database Schema: appendix/database-schema.md
-
   - Policies & Terms:
       - Data Governance: policies/data-governance.md
       - ETL Runbook: policies/etl-runbook.md
+      - Ticket Priority & SLA: policies/ticket-sla-guidelines.md
+      - IT Acceptable Use: policies/it-acceptable-use.md
       - Data Usage Terms: terms/data-usage.md
-
   - Insights: insights.md
-
   - About Us:
       - What We Do: what-we-do.md
       - Who We Are: about.md
