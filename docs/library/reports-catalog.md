@@ -47,3 +47,11 @@ spec in [Epic 4](../projects/epic-4-performance-bi.md).
 2. Add row to `dim_report_email_map` (recipients TO/CC) — [Email Distribution](../guides/email-distribution.md).
 3. Implement generation (SQL view / GAS / dashboard) and schedule.
 4. Register here + announce via [Announcements](../announcements.md).
+
+
+### RPT-001 — Daily Sales Report { #rpt-001 }
+### RPT-002 — Weekly Sales Performance { #rpt-002 }
+### RPT-003 — Monthly Sales Report { #rpt-003 }
+### RPT-004 — Customer Analysis Report { #rpt-004 }
+### RPT-005 — Inventory Report { #rpt-005 }
+### RPT-006 — Finance Summary Report { #rpt-006 }
