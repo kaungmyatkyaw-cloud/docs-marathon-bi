@@ -57,6 +57,7 @@ nav:
   - Policies & Terms:
       - Data Governance: policies/data-governance.md
       - ETL Runbook: policies/etl-runbook.md
+      - Report Automation (GAS): guides/report-automation.md 
       - Data Usage Terms: terms/data-usage.md
 
   - Insights: insights.md
