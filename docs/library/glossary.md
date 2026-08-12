@@ -15,13 +15,13 @@ description: Every abbreviation used across this library — long form, plain-En
 
 | Short | Long Form | Meaning | Reference |
 |---|---|---|---|
-| **NDA** | Non-Disclosure Agreement | Contract keeping shared confidential information secret between parties. | [Wiki](https://en.wikipedia.org/wiki/Non-disclosure_agreement) · [BIaaS §8](../business/bi-as-a-service.md) |
-| **DPA** | Data Processing Agreement | Defines how a processor may handle personal data on behalf of its owner. | [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) · [BIaaS §8](../business/bi-as-a-service.md) |
+| **NDA** | Non-Disclosure Agreement | Contract keeping shared confidential information secret between parties. | [Wiki](https://en.wikipedia.org/wiki/Non-disclosure_agreement) · [BIaaS 8](../business/bi-as-a-service.md) |
+| **DPA** | Data Processing Agreement | Defines how a processor may handle personal data on behalf of its owner. | [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) · [BIaaS 8](../business/bi-as-a-service.md) |
 | **AUP** | Acceptable Use Policy | Rules for proper use of IT systems, devices and networks. | [IT AUP](../policies/it-acceptable-use.md) |
 | **EULA** | End-User License Agreement | License terms between software vendor and end user. | [Wiki](https://en.wikipedia.org/wiki/End-user_license_agreement) |
 | **SLA** | Service Level Agreement | Promised response/resolution times per priority. | [SLA Guidelines](../policies/ticket-sla-guidelines.md) |
 | **SOW** | Statement of Work | Scoped deliverables, timeline and price for a project. | [Wiki](https://en.wikipedia.org/wiki/Statement_of_work) |
-| **QBR** | Quarterly Business Review | Quarterly performance & expansion meeting with stakeholders. | [BIaaS §6](../business/bi-as-a-service.md) |
+| **QBR** | Quarterly Business Review | Quarterly performance & expansion meeting with stakeholders. | [BIaaS 6](../business/bi-as-a-service.md) |
 | **GDPR** | General Data Protection Regulation | EU privacy law — the global benchmark for personal-data handling. | [Wiki](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation) |
 | **PII** | Personally Identifiable Information | Any data identifying a person (name, NRC, phone, email). | [Wiki](https://en.wikipedia.org/wiki/Personal_data) |
 | **KYC** | Know Your Customer | Identity verification before onboarding clients/agents. | [Wiki](https://en.wikipedia.org/wiki/Know_your_customer) |
@@ -66,7 +66,7 @@ description: Every abbreviation used across this library — long form, plain-En
 | **ARR** | Annual Recurring Revenue | MRR × 12. | [Wiki](https://en.wikipedia.org/wiki/Annual_recurring_revenue) |
 | **CAC** | Customer Acquisition Cost | Sales + marketing cost per new client. | [Wiki](https://en.wikipedia.org/wiki/Customer_acquisition_cost) |
 | **LTV** | Lifetime Value | Total value of a client over the relationship. | [Wiki](https://en.wikipedia.org/wiki/Customer_lifetime_value) |
-| **ICP** | Ideal Customer Profile | Description of the best-fit buyer. | [BIaaS §2](../business/bi-as-a-service.md) |
+| **ICP** | Ideal Customer Profile | Description of the best-fit buyer. | [BIaaS 2](../business/bi-as-a-service.md) |
 | **FTE** | Full-Time Equivalent | Standard headcount unit. | [Wiki](https://en.wikipedia.org/wiki/Full-time_equivalent) |
 | **BU** | Business Unit | One company/division (M-Kitchen, ShweZay…). | [Who We Are](../about.md) |
 | **HOD** | Head of Department | Department leader receiving KPI reports. | [KPI Framework](../projects/epic-4-okr-kpi-framework.md) |
