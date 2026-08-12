@@ -181,7 +181,7 @@ delivery cost (`weight × 300`), Catalogue/Corp/B2B prices, margins & discounts,
 
 | Config | Value |
 |---|---|
-| Trigger | **Monthly — manual trigger ⚠️** (add `createMonthlyTrigger`, see runbook §6.2) |
+| Trigger | **Monthly — manual trigger ⚠️** (add `createMonthlyTrigger`, see runbook 6.2) |
 | Filename | `[MMM] 'M-Kitchen --> M-Express Deliveries Master Data Snapshot'` |
 | Drive folder | `1rla_QZmXl6P6lV_2neApaaJY6QyF5T1o` |
 | Recipients cell | **G2** · DB user `thansoeaung` |
@@ -254,7 +254,7 @@ graph LR
 | GAS-02 | D2 | Same |
 | GAS-04 | G2 | Same |
 | GAS-03 | J2 | Same |
-| RPT-001…006 | `dim_report_email_map` | [Email Distribution §5](../guides/email-distribution.md) |
+| RPT-001…006 | `dim_report_email_map` | [Email Distribution 5](../guides/email-distribution.md) |
 
 !!! warning "No hardcoded recipients"
     Adding a person = editing the config sheet / mapping table, **not** editing code.

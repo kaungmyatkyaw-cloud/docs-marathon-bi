@@ -34,7 +34,7 @@ owner: BI Lead
 
 !!! warning "GAS-04 has no trigger function"
     The monthly script ships **without** `createWeeklyTrigger`. Create its trigger
-    manually (see §6) or add the `createMonthlyTrigger()` snippet below.
+    manually (see 6) or add the `createMonthlyTrigger()` snippet below.
 
 ---
 
@@ -87,7 +87,7 @@ sequenceDiagram
 4. Reserve a **new recipients cell** in the config sheet and update `TAB_ID`/range.
 5. Rename the `baseName` pattern (e.g. `'Www/yy <Report>'`).
 6. Run `createWeeklyTrigger()` once and authorize scopes (`Jdbc`, `Drive`, `Sheets`, `Mail`).
-7. Register the new automation in §1 of this page and in the [Master Report Catalog](../projects/daily-routine.md).
+7. Register the new automation in 1 of this page and in the [Master Report Catalog](../projects/daily-routine.md).
 
 ---
 

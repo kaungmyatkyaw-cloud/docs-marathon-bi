@@ -10,6 +10,9 @@ theme:
   logo: assets/logo.webp
   favicon: assets/logo.webp
   language: en
+  font:
+    text: Inter
+    code: IBM Plex Mono
   palette:
     - scheme: default
       toggle:

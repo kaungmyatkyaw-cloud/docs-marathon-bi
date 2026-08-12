@@ -71,8 +71,8 @@ description: Master contents — every report, query, schema, automation, form a
 
 | Registry | Count | Home |
 |---|:---:|---|
-| MDM / master-data pipeline | 27 | [ETL Guide §4](../guides/etl-guide.md) |
-| Sales fact ETL (chunked) | 28 | [ETL Guide §5](../guides/etl-guide.md) |
+| MDM / master-data pipeline | 27 | [ETL Guide 4](../guides/etl-guide.md) |
+| Sales fact ETL (chunked) | 28 | [ETL Guide 5](../guides/etl-guide.md) |
 | GAS embedded CTE queries | 4 | [Report Automation](../guides/report-automation.md) |
 | KPI measurement scripts | 27 | [OKR/KPI Framework](../projects/epic-4-okr-kpi-framework.md) |
 | Schema audit (anti-pattern) | 1 | [Epic 1](../projects/epic-1-source-analysis.md) |
@@ -91,8 +91,8 @@ description: Master contents — every report, query, schema, automation, form a
 | ID | Script | Engine | Cadence | Reference |
 |---|---|---|---|---|
 | GAS-01…04 | Master data / pricelist / deliveries pulls | Apps Script + JDBC | Weekly/Monthly | [Report Automation](../guides/report-automation.md) |
-| ETL-A | Master-data cleaning pipeline | MySQL | On change | [ETL Guide §4](../guides/etl-guide.md) |
-| ETL-B | Sales fact pipeline | MySQL | Daily | [ETL Guide §5](../guides/etl-guide.md) |
+| ETL-A | Master-data cleaning pipeline | MySQL | On change | [ETL Guide 4](../guides/etl-guide.md) |
+| ETL-B | Sales fact pipeline | MySQL | Daily | [ETL Guide 5](../guides/etl-guide.md) |
 | PY-01 | Product categorization (ML) | Python | On demand | [Epic 3](../projects/epic-3-mdm-dw.md) |
 | PY-02 | KPI/SLA measurement cron | Python | Daily 03:00 | [Epic 4](../projects/epic-4-okr-kpi-framework.md) |
 | CI-01 | Docs deploy | Wrangler + GH Actions | On push | [Home](../index.md) |
@@ -103,11 +103,11 @@ description: Master contents — every report, query, schema, automation, form a
 |---|---|---|---|
 | Acceptable IT use | [IT AUP](../policies/it-acceptable-use.md) | — | [Acknowledgement](forms-index.md#f-05) |
 | Ticket priority & SLA | [SLA Guidelines](../policies/ticket-sla-guidelines.md) | [Epic 5 runbook](../projects/epic-5-zammad-integration.md) | [Ticket](forms-index.md#f-01) |
-| Data confidentiality | [Governance §7](../policies/data-governance.md) + [AUP §5](../policies/it-acceptable-use.md#5-data-confidentiality) | — | — |
+| Data confidentiality | [Governance 7](../policies/data-governance.md) + [AUP 5](../policies/it-acceptable-use.md#5-data-confidentiality) | — | — |
 | Report requests | — | [Email Distribution](../guides/email-distribution.md) | [Report Request](forms-index.md#f-02) |
-| Data corrections | [Governance §5](../policies/data-governance.md) | [ETL §4](../guides/etl-guide.md) | [Data Correction](forms-index.md#f-03) |
-| Access & tokens | [Governance §7](../policies/data-governance.md) | [Automation §5](../guides/report-automation.md) | [Access Request](forms-index.md#f-04) |
-| Escalation | [SLA §Escalation](../policies/ticket-sla-guidelines.md#escalation-process) | [Runbook §5](../policies/etl-runbook.md) | — |
+| Data corrections | [Governance 5](../policies/data-governance.md) | [ETL 4](../guides/etl-guide.md) | [Data Correction](forms-index.md#f-03) |
+| Access & tokens | [Governance 7](../policies/data-governance.md) | [Automation 5](../guides/report-automation.md) | [Access Request](forms-index.md#f-04) |
+| Escalation | [SLA Escalation](../policies/ticket-sla-guidelines.md#escalation-process) | [Runbook 5](../policies/etl-runbook.md) | — |
 | Change announcements | — | — | [Announcements](../announcements.md) |
 
 > [Reports Catalog](reports-catalog.md) · [Forms](forms-index.md) · [Skills](skills-matrix.md) · [Policies](../policies/data-governance.md)

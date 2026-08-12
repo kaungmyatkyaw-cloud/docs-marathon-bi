@@ -85,3 +85,46 @@ if (window.document$ && typeof window.document$.subscribe === 'function') {
 } else {
   document.addEventListener('DOMContentLoaded', markNestedTabs);
 }
+
+// ── Back button: inject and show only if history exists ─────
+(function () {
+  "use strict";
+
+  function injectBackButton() {
+    // Don't inject twice
+    if (document.getElementById('md-back-button')) return;
+    
+    // Only show if there's actual history to go back to
+    if (window.history.length <= 1) return;
+    // Don't show if user came from a different domain
+    if (!document.referrer) return;
+
+    var btn = document.createElement('button');
+    btn.id = 'md-back-button';
+    btn.className = 'back-button';
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Go back to previous page');
+    btn.innerHTML = 
+      '<svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>' +
+      '<span>Back</span>';
+    
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.history.back();
+    });
+    
+    document.body.appendChild(btn);
+    
+    // Fade in after a short delay (so page content renders first)
+    setTimeout(function () {
+      btn.classList.add('is-visible');
+    }, 300);
+  }
+
+  // Works with Material's instant-loading
+  if (window.document$ && typeof window.document$.subscribe === 'function') {
+    window.document$.subscribe(injectBackButton);
+  } else {
+    document.addEventListener('DOMContentLoaded', injectBackButton);
+  }
+})();
