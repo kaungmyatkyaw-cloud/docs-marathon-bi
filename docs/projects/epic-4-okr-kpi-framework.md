@@ -69,36 +69,85 @@ Every department has **one KPI of each type**, creating a balanced scorecard:
 
 ### 2.2 Enhanced KPI Master Sheet
 
-| kpi_id | Dept | Type | KPI | Source System | Automated? | Calculation | Freq | Fail | Target | Current |
-|---|---|---|---|---|:---:|---|---|---|---|---|
-| K-MK-01 | M-Kitchen | SLA | Payment on time | `das-db.sales_invoices` | ✅ | Paid within due date ÷ total paid | Weekly | 70% | 80% | 17% |
-| K-MK-02 | M-Kitchen | Quality | SO per active customer | `das-db.sales_orders` | ✅ | Customers with ≥2 SOs in 90d | Weekly | 1.2 | 1.5 | 1.29 |
-| K-MK-03 | M-Kitchen | Efficiency | SO per employee | `das-db.sales_orders` + `employees` | ✅ | Closed SOs ÷ active FTEs | Weekly | 10 | 12 | 9 |
-| K-SZ-01 | Shwe Zay | SLA | Ageing stock % | `das-db.stock_summaries` | 🚧 | Ageing items ÷ total items | Weekly | 60% | 70% | — |
-| K-SZ-02 | Shwe Zay | Quality | Identified customer % | `das-db.sales_invoices` | ✅ | Txn with account ÷ total txn | Weekly | 40% | 60% | 33.69% |
-| K-SZ-03 | Shwe Zay | Efficiency | Sales txn per employee | `das-db.sales_invoices` + `employees` | ✅ | Transactions ÷ FTEs | Weekly | 438 | 480 | 438 |
-| K-MT-01 | M-Tech | SLA | Issue resolution on time | `zammad.fact_support_tickets` | ✅ | Resolved within SLA ÷ resolved | Weekly | 20% | 40% | 15% |
-| K-MT-02 | M-Tech | Quality | Ageing issue tickets | `zammad.fact_support_tickets` | ✅ | Ageing open ÷ ongoing open | Weekly | 40% | 60% | 12% |
-| K-MT-03 | M-Tech | Efficiency | Features per employee | `zammad.fact_support_tickets` | ✅ | Closed feature tickets ÷ FTEs / qtr | Quarterly | 7 | 10 | 4.2 |
-| K-ME-01 | M-Express | SLA | Delivery on time | `marathon_express.deliveries` | 🚧 | Delivered in N days ÷ total | Weekly | 88% | 95% | 88% |
-| K-ME-02 | M-Express | Quality | Delivery rating | `marathon_express.reviews` | 🚧 | Avg customer rating (1–5) | Weekly | 3 | 3.5 | — |
-| K-ME-03 | M-Express | Efficiency | Delivery orders per emp | `marathon_express.deliveries` | 🚧 | Orders delivered ÷ FTEs | Weekly | 67 | 80 | 67 |
-| K-MF-01 | M-Trading FMCG | SLA | Stock shortage % | `das-db.stock_summaries` | ✅ | SKUs w/ 0 stock ÷ stored SKUs | Weekly | 40% | 30% | 71.43% |
-| K-MF-02 | M-Trading FMCG | Quality | Product quality score | Survey → `fact_survey_responses` | 🚧 | Avg user rating (1–5) | Monthly | 3 | 3.5 | — |
-| K-MF-03 | M-Trading FMCG | Efficiency | Trade per employee | `das-db.sales_invoices` + `employees` | ✅ | Qty sold to BUs ÷ FTEs | Weekly | 0.20 | 0.30 | 47 |
-| K-MO-01 | M-Trading Oil | SLA | Payment on time | `google_sheets.oil_sales` | ⚠️ | Paid within due date ÷ total | Weekly | 70% | 100% | — |
-| K-MO-02 | M-Trading Oil | Quality | Complaint rate | `google_sheets.oil_shortages` | ⚠️ | Shortage rows ÷ total rows | Weekly | 0% | 100% | — |
-| K-MO-03 | M-Trading Oil | Efficiency | Damage rate | `google_sheets.drum_damage` | ⚠️ | Damaged qty ÷ sold qty | Weekly | 100% | 75% | — |
-| K-FN-01 | Finance | SLA | On-time reports | `bi.fact_report_log` | ✅ | Reports posted by 15th ÷ total | Monthly | 0% | 100% | — |
-| K-FN-02 | Finance | Quality | Blank cheque + audit | Manual audit log | ⚠️ | Weighted formula (cheque 50% + audit 50%) | Weekly | 0% | 100% | — |
-| K-FN-03 | Finance | Efficiency | Fraud cases | Daily bank PDF | ⚠️ | Count of cases; 0 cases = 100% | Daily | 0% | 100% | — |
-| K-BI-01 | BI | SLA | KPIs published on time | `bi.fact_report_log` | ✅ | Published by Mon 2 pm ÷ scheduled | Weekly | 0 | 5 | — |
-| K-BI-02 | BI | Quality | Ticket quality survey | `zammad.fact_support_tickets` | ✅ | Dept score on BI projects (1–5) | Monthly | 2.5 | 3.5 | — |
-| K-BI-03 | BI | Efficiency | Marathon efficiency | Cross-dept aggregate | ✅ | Average of all dept efficiency KPIs | Weekly | 50% | 100% | — |
-| K-HR-01 | Admin & HR | SLA | Onboarding on time | `das-db.employees` | ✅ | Ready ÷ onboarded (SLA 2 wks) | Monthly | 0% | 100% | — |
-| K-HR-02 | Admin & HR | Quality | Employee satisfaction | Survey → `fact_survey_responses` | 🚧 | Avg rating (1–5); fraud 50% + survey 50% | Monthly | 3.83 | 4 | 3.83 |
-| K-HR-03 | Admin & HR | Efficiency | Employee working time | `das-db.attendance_logs` | ✅ | Hours ÷ working days | Monthly | 6.7 | 7.2 | 6.4 |
+!!! tip "How to read"
+    **Fail → Target** = failure threshold → success target ·
+    **Auto:** ✅ automated via warehouse cron · 🚧 build scheduled · ⚠️ manual source
 
+#### M-Kitchen
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-MK-01 | SLA | Payment on time | das-db · ✅ | Invoices paid within due date / invoices fully paid | Weekly | 70% → 80% | 17% |
+| K-MK-02 | Quality | Monthly SO per active customer | das-db · ✅ | Customers with 2+ SOs closed in last 90 days | Weekly | 1.2 → 1.5 | 1.29 |
+| K-MK-03 | Efficiency | SO per employee | das-db · ✅ | Closed SOs / active employees | Weekly | 10 → 12 | 9 |
+
+#### Shwe Zay
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-SZ-01 | SLA | Ageing stock | Manual · 🚧 | Ageing items / total items | Weekly | 60% → 70% | — |
+| K-SZ-02 | Quality | Identified customer | das-db · ✅ | Transactions with account / total transactions | Weekly | 40% → 60% | 33.69% |
+| K-SZ-03 | Efficiency | Sales txn per employee | das-db · ✅ | Sales transactions / employees | Weekly | 438 → 480 | 438 |
+
+#### M-Tech
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-MT-01 | SLA | Issue resolution on time | Zammad · ✅ | Non-ageing resolved issues / resolved issues | Weekly | 20% → 40% | 15% |
+| K-MT-02 | Quality | Ageing issue tickets | Zammad · ✅ | Non-ageing open / ongoing open issues | Weekly | 40% → 60% | 12% |
+| K-MT-03 | Efficiency | New features per employee | Zammad · ✅ | Feature tickets closed / employee / quarter | Quarterly | 7 → 10 | 4.2 |
+
+#### M-Express
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-ME-01 | SLA | Delivery on time | M-Exp · 🚧 | Orders delivered within N days of pickup / delivered | Weekly | 88% → 95% | 88% |
+| K-ME-02 | Quality | Delivery quality rating | M-Exp · 🚧 | Average customer rating (1–5) | Weekly | 3 → 3.5 | — |
+| K-ME-03 | Efficiency | Delivery orders per employee | M-Exp · 🚧 | Orders delivered / employees | Weekly | 67 → 80 | 67 |
+
+#### M-Trading (FMCG)
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-MF-01 | SLA | Stock shortage | das-db · ✅ | SKUs with zero stock / SKUs stored | Weekly | 40% → 30% ↓ | 71.43% |
+| K-MF-02 | Quality | Product quality score | Survey · 🚧 | Average user rating (1–5) | Monthly | 3 → 3.5 | — |
+| K-MF-03 | Efficiency | Trade per employee | das-db · ✅ | Qty sold to internal BUs / employees | Weekly | 0.20 → 0.30 | 47 |
+
+#### M-Trading (Oil)
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-MO-01 | SLA | Payment on time | G-Sheet · ⚠️ | SOs paid within due date / SOs fully paid | Weekly | 70% → 100% | — |
+| K-MO-02 | Quality | Complaint rate | G-Sheet · ⚠️ | Shortage rows / total rows | Weekly | 0% → 100% | — |
+| K-MO-03 | Efficiency | Damage rate | G-Sheet · ⚠️ | Damaged qty / sold qty | Weekly | 100% → 75% ↓ | — |
+
+#### Finance
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-FN-01 | SLA | On-time reports | Manual · ⚠️ | Reports posted by 15th / total reports | Monthly | 0% → 100% | — |
+| K-FN-02 | Quality | Blank cheque + internal audit | Manual · ⚠️ | (1 − attempts/5) × 0.5 + (audit weeks passed / weeks) × 0.5 | Weekly | 0% → 100% | — |
+| K-FN-03 | Efficiency | Fraud cases | Manual · ⚠️ | 0 cases = 100%; any case = 0% | Daily | 0% → 100% | — |
+
+#### BI
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-BI-01 | SLA | Dept KPIs published on time | Warehouse · ✅ | KPI + attendance published by Mon 2pm | Weekly | 0 → 5 depts | — |
+| K-BI-02 | Quality | Ticket quality survey | Zammad · ✅ | Dept score on new BI projects (1–5) | Monthly | 2.5 → 3.5 | — |
+| K-BI-03 | Efficiency | Marathon efficiency | Warehouse · ✅ | Average of all dept efficiency KPIs | Weekly | 50% → 100% | — |
+
+#### Admin & HR
+
+| ID | Type | KPI | Source · Auto | Calculation | Freq | Fail → Target | Actual |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| K-HR-01 | SLA | Onboarding on time | das-db · ✅ | Onboarded-ready / onboarded (SLA 2 weeks) | Monthly | 0% → 100% | — |
+| K-HR-02 | Quality | Employee satisfaction | Survey · 🚧 | Avg rating (1–5); fraud 50% + survey 50% | Monthly | 3.83 → 4 | 3.83 |
+| K-HR-03 | Efficiency | Employee working time | das-db · ✅ | Hours worked / days worked | Monthly | 6.7 → 7.2 | 6.4 |
+
+!!! note "Maturity"
+    14 ✅ automated · 5 🚧 in build · 8 ⚠️ manual — target: **0 manual by Q1 2027**.
+    
 ### 2.3 Automation Status Legend
 
 | Icon | Meaning | Action Required |
