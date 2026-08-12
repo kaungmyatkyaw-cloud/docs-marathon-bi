@@ -47,6 +47,7 @@ nav:
       - Reports Catalog: library/reports-catalog.md
       - Forms & Templates: library/forms-index.md
       - BI Skills Matrix: library/skills-matrix.md
+      - Technical Glossary: library/glossary.md
   - Our Work:
       - Projects & Status: projects/index.md
       - Daily Routine: projects/daily-routine.md
@@ -68,6 +69,8 @@ nav:
       - IT Acceptable Use: policies/it-acceptable-use.md
       - Data Usage Terms: terms/data-usage.md
   - Insights: insights.md
+  - Business:
+      - BI as a Service: business/bi-as-a-service.md
   - About Us:
       - What We Do: what-we-do.md
       - Who We Are: about.md
