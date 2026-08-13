@@ -6,12 +6,20 @@ title: Home
 # ⚖️ Marathon BI — Truth in Every Number
 
 !!! quote "Our Standard of Evidence"
-    *"Facts are stubborn things; and whatever may be our wishes, our inclinations, 
+    *"Facts are stubborn things; and whatever may be our wishes, our inclinations,
     or the dictates of our passion, they cannot alter the state of facts and evidence."*
-    <br>— **John Adams**
+    — **John Adams**
 
-    Like evidence in a court of law, every figure we publish must be 
-    **accurate, complete, and defensible — beyond reasonable doubt.**
+    Like evidence in a court of law, every figure we publish must be
+    **accurate, complete, and defensible — beyond reasonable doubt**.
+
+    🎬 **Watch: Marathon Myanmar in action**
+
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/BlmyzIrCKdI" title="Marathon Myanmar — CLICK, TRACK, RELAX!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    Can't see the video? [Watch on YouTube →](https://youtu.be/BlmyzIrCKdI)
 
 [What we do](what-we-do.md){ .md-button .md-button--primary }
 [See our work](projects/index.md){ .md-button }
