@@ -1,4 +1,4 @@
-site_name: Marathon BI Documentation
+site_name: Marathon BI HUB
 site_description: Unified Data Warehouse — BI team of Marathon Myanmar
 site_url: https://docs-marathon-bi.kaungmyatkyaw.workers.dev/
 
@@ -77,6 +77,8 @@ nav:
       - Who We Are: about.md
       - Sustainability: sustainability.md
       - Contact: contact.md
+  - Let-see:
+      - lets-see.md
 
 markdown_extensions:
   - admonition

@@ -1,6 +1,15 @@
 // wrangler.jsonc
 {
-  "name": "docs-marathon-bi",
-  "compatibility_date": "2026-01-01",
-  "assets": { "directory": "./site" }
+	"name": "docs-marathon-bi",
+	"compatibility_date": "2026-01-01",
+	"main": "src/index.js",
+	"assets": {
+		"directory": "./site"
+	},
+	"kv_namespaces": [
+		{
+			"binding": "BI_HUB_TASKS",
+			"id": "5ab2476ab0f64a10b616ffd943ff6467"
+		}
+	]
 }
