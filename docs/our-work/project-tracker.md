@@ -144,7 +144,7 @@
 
 <script>
     // PASTE YOUR NEW APPS SCRIPT URL HERE
-    const API_URL = 'https://script.google.com/macros/s/YOUR_NEW_DEPLOYMENT_ID/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbw5Vm16VW6WW2LwJWKWef8ZCtmXt8tULQ6opKVVPJ5w6kOJYCz95ek0RJA_t4QaDPnuRw/exec';
     let allTasks = [];
 
     function toggleGuide() {
