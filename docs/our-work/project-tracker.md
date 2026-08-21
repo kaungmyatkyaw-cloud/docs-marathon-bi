@@ -197,7 +197,7 @@
                     const attBox = document.getElementById('task-attachments');
                     attBox.value = attBox.value ? attBox.value + '\n' + result.url : result.url;
                 } else {
-                    statusSpan.innerText = ' Upload failed: ' + (result.error || 'Unknown');
+                    statusSpan.innerText = '❌ Upload failed: ' + (result.error || 'Unknown');
                 }
             } catch (err) {
                 statusSpan.innerText = '❌ Error: ' + err.message;
@@ -208,89 +208,147 @@
         reader.readAsDataURL(file);
     }
 
+    // Form Submit - ONLY create ticket when form is explicitly submitted
     document.getElementById('task-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission
+        
+        // Validate required fields
+        const taskName = document.getElementById('task-name').value.trim();
+        const taskType = document.getElementById('task-type').value;
+        
+        if (!taskName || !taskType) {
+            alert(' Please fill in all required fields (Title and Type)');
+            return;
+        }
+        
         const btn = e.target.querySelector('button[type="submit"]');
+        const originalText = btn.innerText;
         btn.innerText = 'Saving...';
         btn.disabled = true;
+        
         const data = {
-            task: document.getElementById('task-name').value,
-            type: document.getElementById('task-type').value,
+            task: taskName,
+            type: taskType,
             priority: document.getElementById('task-priority').value,
             startDate: document.getElementById('start-date').value,
             endDate: document.getElementById('end-date').value,
             remarks: document.getElementById('task-remarks').value,
             attachments: document.getElementById('task-attachments').value
         };
+
         try {
-            await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) });
-            alert('✅ Ticket Created!');
-            e.target.reset();
+            await fetch(API_URL, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain' }, 
+                body: JSON.stringify(data) 
+            });
+            
+            alert('✅ Ticket Created Successfully!');
+            e.target.reset(); // Clear the form
             document.getElementById('file-status').innerText = 'No file selected';
             setTimeout(loadTasks, 2000);
         } catch (error) {
             alert('❌ Error: ' + error.message);
         } finally {
-            btn.innerText = '+ Create Ticket';
+            btn.innerText = originalText;
             btn.disabled = false;
         }
     });
 
+    // Update Status - Use action parameter
     async function updateStatus(ticketId) {
         const statuses = ['Backlog', 'In Progress', 'Review', 'Completed'];
         const task = allTasks.find(t => t['Ticket ID'] === ticketId);
         if (!task) return;
+        
         const currentIndex = statuses.indexOf(task['Status']);
         const newStatus = statuses[(currentIndex + 1) % statuses.length];
+        
         try {
-            await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'update', ticketId: ticketId, status: newStatus }) });
+            await fetch(API_URL, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain' }, 
+                body: JSON.stringify({ 
+                    action: 'update',
+                    ticketId: ticketId, 
+                    status: newStatus 
+                }) 
+            });
             setTimeout(loadTasks, 1000);
-        } catch (error) { alert('❌ Error updating status: ' + error.message); }
+        } catch (error) { 
+            alert('❌ Error updating status: ' + error.message); 
+        }
     }
 
+    // Update Progress - Use action parameter
     async function updateProgress(ticketId) {
         const task = allTasks.find(t => t['Ticket ID'] === ticketId);
         if (!task) return;
+        
         const newProgress = prompt(`Update progress for ${ticketId} (0-100):`, task['Progress'] || 0);
         if (newProgress === null || isNaN(newProgress)) return;
+        
         const progress = Math.min(100, Math.max(0, parseInt(newProgress)));
+        
         try {
-            await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify({ action: 'update', ticketId: ticketId, progress: progress }) });
+            await fetch(API_URL, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'text/plain' }, 
+                body: JSON.stringify({ 
+                    action: 'update',
+                    ticketId: ticketId, 
+                    progress: progress 
+                }) 
+            });
             setTimeout(loadTasks, 1000);
-        } catch (error) { alert(' Error updating progress: ' + error.message); }
+        } catch (error) { 
+            alert('❌ Error updating progress: ' + error.message); 
+        }
     }
 
+    // Load Tasks - Only reads data, doesn't create anything
     async function loadTasks() {
         try {
             const timestamp = new Date().getTime();
             const res = await fetch(`${API_URL}?t=${timestamp}`);
             allTasks = await res.json();
+            
             const tbody = document.getElementById('task-tbody');
             if (allTasks.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:40px;">📭 No tickets found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:40px;">📭 No tickets found. Create one above!</td></tr>';
                 return;
             }
-            tbody.innerHTML = allTasks.map(t => {
+
+            // Filter out empty/invalid tickets
+            const validTasks = allTasks.filter(t => t['Title'] && t['Title'].trim() !== '');
+
+            if (validTasks.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:40px;">📭 No valid tickets found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = validTasks.map(t => {
                 const typeClass = `type-${(t['Type'] || '').toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
                 const attachmentHtml = t['Attachments'] ? 
                     t['Attachments'].split(/[\n,]+/).map(link => `<a href="${link.trim()}" target="_blank" class="attachment-link">📎 View</a>`).join(' ') : 
                     '<span style="color: var(--md-default-fg-color--light);">-</span>';
+                
                 return `
                     <tr>
                         <td><span class="ticket-id">${t['Ticket ID'] || 'BI-NEW'}</span></td>
                         <td><strong>${t['Title']}</strong></td>
-                        <td><span class="type-badge ${typeClass}">${t['Type']}</span></td>
-                        <td><span class="priority-badge priority-${(t['Priority'] || '').toLowerCase()}">${t['Priority']}</span></td>
+                        <td><span class="type-badge ${typeClass}">${t['Type'] || 'Unknown'}</span></td>
+                        <td><span class="priority-badge priority-${(t['Priority'] || 'medium').toLowerCase()}">${t['Priority'] || 'Medium'}</span></td>
                         <td><span class="duration-badge">${t['Duration'] || '-'} days</span></td>
                         <td style="min-width: 100px;">
                             <div class="progress-bar"><div class="progress-fill" style="width: ${t['Progress'] || 0}%"></div></div>
                             <small>${t['Progress'] || 0}%</small>
                         </td>
-                        <td><span class="status-badge status-${(t['Status'] || '').toLowerCase().replace(' ', '-')}">${t['Status']}</span></td>
+                        <td><span class="status-badge status-${(t['Status'] || 'backlog').toLowerCase().replace(' ', '-')}">${t['Status'] || 'Backlog'}</span></td>
                         <td>${attachmentHtml}</td>
                         <td>
-                            <button class="action-btn" onclick="updateProgress('${t['Ticket ID']}')" title="Update Progress">📊</button>
-                            <button class="action-btn" onclick="updateStatus('${t['Ticket ID']}')" title="Change Status">🔄</button>
+                            <button class="action-btn" onclick="event.stopPropagation(); updateProgress('${t['Ticket ID']}')" title="Update Progress">📊</button>
+                            <button class="action-btn" onclick="event.stopPropagation(); updateStatus('${t['Ticket ID']}')" title="Change Status">🔄</button>
                         </td>
                     </tr>
                 `;
@@ -300,5 +358,7 @@
             document.getElementById('task-tbody').innerHTML = '<tr><td colspan="9" style="text-align:center; padding:20px; color: red;">⚠️ Error loading data</td></tr>';
         }
     }
+    
+    // Initial load
     loadTasks();
 </script>
