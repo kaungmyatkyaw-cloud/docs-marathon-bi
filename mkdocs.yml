@@ -77,8 +77,7 @@ nav:
       - Who We Are: about.md
       - Sustainability: sustainability.md
       - Contact: contact.md
-  - Let-see:
-      - lets-see.md
+  - Let-see: lets-see.md
 
 markdown_extensions:
   - admonition
