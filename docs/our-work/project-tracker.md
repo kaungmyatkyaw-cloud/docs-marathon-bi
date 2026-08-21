@@ -152,51 +152,53 @@
         g.style.display = g.style.display === 'none' ? 'block' : 'none';
     }
 
-    // File Upload Logic
-    async function handleFileUpload(input) {
-        const file = input.files[0];
-        if (!file) return;
+// File Upload Logic
+async function handleFileUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
 
-        const statusSpan = document.getElementById('file-status');
-        const uploadBtn = document.querySelector('.btn-upload');
+  const statusSpan = document.getElementById('file-status');
+  const uploadBtn = document.querySelector('.btn-upload');
+  
+  statusSpan.innerHTML = '<span class="uploading-spinner"></span> Uploading to Drive...';
+  uploadBtn.disabled = true;
+
+  const reader = new FileReader();
+  reader.onload = async function(e) {
+    const base64 = e.target.result.split(',')[1];
+    
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          action: 'upload',
+          base64: base64,
+          fileName: file.name,
+          mimeType: file.type
+        })
+      });
+      const result = await response.json();
+      
+      if (result.success) {
+        statusSpan.innerHTML = `✅ Uploaded: ${result.name}`;
+        document.getElementById('uploaded-file-url').value = result.url;
         
-        statusSpan.innerHTML = '<span class="uploading-spinner"></span> Uploading to Drive...';
-        uploadBtn.disabled = true;
-
-        const reader = new FileReader();
-        reader.onload = async function(e) {
-            const base64 = e.target.result.split(',')[1];
-            
-            try {
-                const response = await fetch(`${API_URL}?action=upload`, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        base64: base64,
-                        fileName: file.name,
-                        mimeType: file.type
-                    })
-                });
-                const result = await response.json();
-                
-                if (result.success) {
-                    statusSpan.innerHTML = `✅ Uploaded: ${result.name}`;
-                    document.getElementById('uploaded-file-url').value = result.url;
-                    
-                    // Auto-add to attachments text area
-                    const attBox = document.getElementById('task-attachments');
-                    attBox.value = attBox.value ? attBox.value + '\n' + result.url : result.url;
-                } else {
-                    statusSpan.innerText = '❌ Upload failed';
-                }
-            } catch (err) {
-                statusSpan.innerText = '❌ Error: ' + err.message;
-            } finally {
-                uploadBtn.disabled = false;
-            }
-        };
-        reader.readAsDataURL(file);
+        // Auto-add to attachments text area
+        const attBox = document.getElementById('task-attachments');
+        attBox.value = attBox.value ? attBox.value + '\n' + result.url : result.url;
+      } else {
+        statusSpan.innerText = '❌ Upload failed: ' + (result.error || 'Unknown error');
+      }
+    } catch (err) {
+      statusSpan.innerText = '❌ Error: ' + err.message;
+    } finally {
+      uploadBtn.disabled = false;
     }
-
+  };
+  reader.readAsDataURL(file);
+}
+            
     // Form Submit
     document.getElementById('task-form').addEventListener('submit', async (e) => {
         e.preventDefault();
