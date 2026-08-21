@@ -167,7 +167,7 @@
 </div>
 
 <script>
-    const API_URL = 'https://script.google.com/macros/s/AKfycbw5Vm16VW6WW2LwJWKWef8ZCtmXt8tULQ6opKVVPJ5w6kOJYCz95ek0RJA_t4QaDPnuRw/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyji3qJGFy47KzWUK7Q6VfT8m_JOQgtzw2Q0UHXQdiDZWc1sytGgcEFNo2cg2YbwF1FeA/exec';
     let allTasks = [];
 
     function toggleGuide() {
