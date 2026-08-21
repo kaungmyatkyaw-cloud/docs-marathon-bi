@@ -232,26 +232,100 @@ async function handleFileUpload(input) {
         setTimeout(loadTasks, 2000);
     });
 
-    async function loadTasks() {
-        const res = await fetch(API_URL);
-        allTasks = await res.json();
-        const tbody = document.getElementById('task-tbody');
-        tbody.innerHTML = '';
-        
-        allTasks.forEach(t => {
-            const attHtml = t.Attachments ? t.Attachments.split('\n').map(l => `<a href="${l.trim()}" target="_blank" class="attachment-link">📎 View</a>`).join(' ') : '-';
-            tbody.innerHTML += `
-                <tr>
-                    <td><b>${t['Ticket ID']}</b></td>
-                    <td>${t.Title}</td>
-                    <td>${t.Type}</td>
-                    <td>${t.Priority}</td>
-                    <td><span class="status-badge status-${t.Status.toLowerCase().replace(' ','-')}">${t.Status}</span></td>
-                    <td>${attHtml}</td>
-                    <td><button onclick="alert('Edit in Sheet')">✏️</button></td>
-                </tr>
-            `;
-        });
+    // 1. UPDATE THE LOAD FUNCTION (Adds cache-busting to prevent stale CORS errors)
+async function loadTasks() {
+  try {
+    const timestamp = new Date().getTime();
+    const res = await fetch(`${API_URL}?t=${timestamp}`);
+    allTasks = await res.json();
+    filterTasks();
+  } catch (error) {
+    console.error("Failed to load tasks:", error);
+    document.getElementById('task-tbody').innerHTML = 
+      '<tr><td colspan="9" style="text-align:center; padding:20px; color: red;">⚠️ Error loading data. Please check your Apps Script deployment settings.</td></tr>';
+  }
+}
+
+// 2. UPDATE THE FILE UPLOAD FUNCTION (Uses 'text/plain' to bypass CORS preflight)
+async function handleFileUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const statusSpan = document.getElementById('file-status');
+  const uploadBtn = document.querySelector('.btn-upload');
+  
+  statusSpan.innerHTML = '<span class="uploading-spinner"></span> Uploading to Drive...';
+  uploadBtn.disabled = true;
+
+  const reader = new FileReader();
+  reader.onload = async function(e) {
+    const base64 = e.target.result.split(',')[1];
+    
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' }, // CRITICAL: Prevents CORS preflight
+        body: JSON.stringify({
+          action: 'upload',
+          base64: base64,
+          fileName: file.name,
+          mimeType: file.type
+        })
+      });
+      const result = await response.json();
+      
+      if (result.success) {
+        statusSpan.innerHTML = `✅ Uploaded: ${result.name}`;
+        const attBox = document.getElementById('task-attachments');
+        attBox.value = attBox.value ? attBox.value + '\n' + result.url : result.url;
+      } else {
+        statusSpan.innerText = '❌ Upload failed: ' + (result.error || 'Unknown');
+      }
+    } catch (err) {
+      statusSpan.innerText = '❌ Error: ' + err.message;
+    } finally {
+      uploadBtn.disabled = false;
     }
-    loadTasks();
+  };
+  reader.readAsDataURL(file);
+}
+
+// 3. UPDATE THE FORM SUBMIT FUNCTION (Also uses 'text/plain')
+document.getElementById('task-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type="submit"]');
+  btn.innerText = 'Saving...';
+  btn.disabled = true;
+
+  const attachmentsText = document.getElementById('task-attachments').value.trim();
+  const attachments = attachmentsText ? attachmentsText.split(/[\n,]+/).map(link => link.trim()).filter(link => link) : [];
+  
+  const taskData = {
+    task: document.getElementById('task-name').value,
+    type: document.getElementById('task-type').value,
+    priority: document.getElementById('task-priority').value,
+    startDate: document.getElementById('start-date').value,
+    endDate: document.getElementById('end-date').value,
+    remarks: document.getElementById('task-remarks').value,
+    attachments: attachments.join(', ')
+  };
+
+  try {
+    await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain' }, // CRITICAL: Prevents CORS preflight
+      body: JSON.stringify(taskData)
+    });
+    
+    alert('✅ Ticket Created Successfully!');
+    e.target.reset();
+    document.getElementById('file-status').innerText = 'No file selected';
+    setTimeout(loadTasks, 1500); // Reload table after short delay
+  } catch (error) {
+    alert('❌ Error saving ticket: ' + error.message);
+  } finally {
+    btn.innerText = '+ Create Ticket';
+    btn.disabled = false;
+  }
+});
 </script>
