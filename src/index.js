@@ -33,6 +33,7 @@ export default {
         newTask.ticketId = `BI-${ticketNumber}`;
         newTask.createdAt = new Date().toISOString();
         newTask.progress = newTask.progress || 0;
+        newTask.attachments = newTask.attachments || [];
         
         // Calculate duration
         if (newTask.startDate && newTask.endDate) {
