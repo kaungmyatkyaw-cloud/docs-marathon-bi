@@ -20,6 +20,7 @@ updated: 2026-08-12
 | 🔄 Epic 2 | Infrastructure & ETL Architecture | 2 | 1 | 50% | [Epic 2](epic-2-infrastructure-etl.md) |
 | 🏗️ Epic 3 | MDM & Data Warehouse Build | 9 | 4 | 45% | [Epic 3](epic-3-mdm-dw.md) |
 | 📊 Epic 4 | OKRs, KPIs & BI Delivery | 7 | 0 | 10% | [Epic 4](epic-4-performance-bi.md) |
+| 🎫 Epic 5 | BI Ticket Resolution | 5 | 0 | 10% | [Epic 4](epic-4-performance-bi.md) |
 
 ### Status Legend
 
