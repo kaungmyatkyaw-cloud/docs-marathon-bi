@@ -78,7 +78,7 @@ nav:
       - Sustainability: sustainability.md
       - Contact: contact.md
   - Let-see: 
-      - Let-SEE: lets-see.md
+      - Reference Link: lets-see.md
       - Project Tracker: our-work/project-tracker.md
 
 markdown_extensions:
