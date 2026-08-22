@@ -18,7 +18,7 @@
     <div class="guide-content">
         <div class="guide-section">
             <h3> How to Attach Files</h3>
-            <p>Click the <strong>"Attach File"</strong> button. Select your photo or document. The system will automatically upload it to your Google Drive "BI Hub Attachments" folder and paste the link into the form for you!</p>
+            <p>Click the <strong>"Attach File"</strong> button. Select your photo or document. The system will automatically upload it to our Google Drive "BI Hub Attachments" folder and paste the link into the form for you!</p>
         </div>
         <div class="guide-section">
             <h3>🎯 Creating a New Ticket</h3>
